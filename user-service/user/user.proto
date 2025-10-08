@@ -1,12 +1,13 @@
 syntax = "proto3";
 
-package proto.user;
+package bannote.userservice.user.v1;
 
 import "google/protobuf/timestamp.proto";
 import "common/enums.proto";
 
+option go_package = "github.com/kyumin1227/bannote-proto/gen/go/user-service/user/v1";
 option java_multiple_files = true;
-option java_package = "com.bannote.userservice.proto.user";
+option java_package = "com.bannote.userservice.proto.user.v1";
 option java_outer_classname = "UserMessageProto";
 
 // 학생의 경우 유저 정보에 포함하여 반환
@@ -31,8 +32,8 @@ message User {
   string name = 4;
   string family_name = 5;
   string given_name = 6;
-  proto.common.UserType type = 7;
-  proto.common.UserStatus status = 8;
+  bannote.userservice.common.v1.UserType type = 7;
+  bannote.userservice.common.v1.UserStatus status = 8;
   string bio = 9;
   string profile = 10;
   google.protobuf.Timestamp created_at = 11;

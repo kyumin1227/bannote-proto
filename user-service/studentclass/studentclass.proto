@@ -1,12 +1,13 @@
 syntax = "proto3";
 
-package proto.student_class;
+package bannote.userservice.studentclass.v1;
 
 import "google/protobuf/timestamp.proto";
 import "common/enums.proto";
 
+option go_package = "github.com/kyumin1227/bannote-proto/gen/go/user-service/student_class/v1";
 option java_multiple_files = true;
-option java_package = "com.bannote.userservice.proto.student_class";
+option java_package = "com.bannote.userservice.proto.student_class.v1";
 option java_outer_classname = "StudentClassMessageProto";
 
 // 학반
@@ -16,7 +17,7 @@ message StudentClass {
   string name = 3;
   int32 admission_year = 4;
   int32 graduation_year = 5;
-  proto.common.StudentClassStatus status = 6;
+  bannote.userservice.common.v1.StudentClassStatus status = 6;
   google.protobuf.Timestamp created_at = 7;
   google.protobuf.Timestamp deleted_at = 8;
   int64 created_by = 9;

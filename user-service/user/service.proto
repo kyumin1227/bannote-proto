@@ -1,18 +1,19 @@
 syntax = "proto3";
 
-package proto.user;
+package bannote.userservice.user.v1;
 
 import "user/user.proto";
 import "common/enums.proto";
 
+option go_package = "github.com/kyumin1227/bannote-proto/gen/go/user-service/user/v1";
 option java_multiple_files = true;
-option java_package = "com.bannote.userservice.proto.user";
+option java_package = "com.bannote.userservice.proto.user.v1";
 option java_outer_classname = "UserServiceProto";
 
 // The user service definition.
 service UserService {
 //  유저 번호를 이용하여 유저를 가져오는 API
-  rpc GetUser (GetUserRequest) returns (User) {
+  rpc GetUser (GetUserRequest) returns (GetUserResponse) {
   }
 
 //  이메일로 회원 가입 여부 확인 API
@@ -20,11 +21,11 @@ service UserService {
   }
 
 //  회원 가입 API
-  rpc CreateUser (CreateUserRequest) returns (User) {
+  rpc CreateUser (CreateUserRequest) returns (CreateUserResponse) {
   }
 
 //  본인이 스스로 변경 가능한 정보를 변경하는 API
-  rpc UpdateUser (UpdateUserRequest) returns (User) {
+  rpc UpdateUser (UpdateUserRequest) returns (UpdateUserResponse) {
   }
 
 //  이름으로 유저 검색 API (부분 일치)
@@ -39,6 +40,10 @@ service UserService {
 // 유저 조회 시 필요한 정보
 message GetUserRequest {
   string user_number = 1;
+}
+
+message GetUserResponse {
+  User user = 1;
 }
 
 // 이메일로 회원 가입 여부 확인 시 필요한 정보
@@ -57,7 +62,7 @@ message CreateUserRequest {
   string email = 2;
   string family_name = 3;
   string given_name = 4;
-  proto.common.UserType type = 5;
+  bannote.userservice.common.v1.UserType type = 5;
   string bio = 6;
   string profile = 7;
 
@@ -66,6 +71,10 @@ message CreateUserRequest {
     StudentInfo student = 8;
     EmployeeInfo employee = 9;
   }
+}
+
+message CreateUserResponse {
+  User user = 1;
 }
 
 // 학생 생성 시 필요한 정보
@@ -88,11 +97,15 @@ message UpdateUserRequest {
   optional string profile = 6;
 }
 
+message UpdateUserResponse {
+  User user = 1;
+}
+
 // 이름으로 유저 검색 시 필요한 정보
 message SearchUsersByNameRequest {
   string name = 1;  // 검색할 이름 (부분 일치, 초성 검색 도입 필요)
-  optional proto.common.UserType type = 2;  // 유저 타입 필터 (선택)
-  optional proto.common.UserStatus status = 3;  // 유저 상태 필터 (선택)
+  optional bannote.userservice.common.v1.UserType type = 2;  // 유저 타입 필터 (선택)
+  optional bannote.userservice.common.v1.UserStatus status = 3;  // 유저 상태 필터 (선택)
   int32 page = 4;
   int32 size = 5;
 }
@@ -107,8 +120,8 @@ message SearchUsersByNameResponse {
 
 // 유저 목록 조회 시 필요한 정보
 message ListUsersRequest {
-  optional proto.common.UserType type = 1;  // 유저 타입 필터 (선택)
-  optional proto.common.UserStatus status = 2;  // 유저 상태 필터 (선택)
+  optional bannote.userservice.common.v1.UserType type = 1;  // 유저 타입 필터 (선택)
+  optional bannote.userservice.common.v1.UserStatus status = 2;  // 유저 상태 필터 (선택)
   optional int64 student_class_id = 3;  // 학반 ID 필터 (선택)
   optional int64 department_id = 4;  // 학과 ID 필터 (선택)
   int32 page = 5;
