@@ -1,0 +1,12 @@
+version: v2
+modules:
+  - path: user-service
+    name: buf.build/kyumin1227/bannote-proto
+lint:
+  use:
+    - STANDARD
+  except:
+    - PACKAGE_DIRECTORY_MATCH
+breaking:
+  use:
+    - FILE
