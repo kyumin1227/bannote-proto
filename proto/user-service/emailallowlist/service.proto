@@ -38,7 +38,7 @@ message AddEmailAllowlistResponse {
 
 // 이메일 허용 목록 삭제 시 필요한 정보
 message RemoveEmailAllowlistRequest {
-  int64 id = 1;
+  string email = 1;
 }
 
 message RemoveEmailAllowlistResponse {

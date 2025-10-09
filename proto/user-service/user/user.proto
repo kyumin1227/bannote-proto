@@ -11,36 +11,55 @@ option java_package = "com.bannote.userservice.proto.user.v1";
 
 // 학생의 경우 유저 정보에 포함하여 반환
 message Student {
-  int64 id = 1;
-  int64 user_id = 2;
-  int64 student_class_id = 3;
+  string user_code = 1;
+  
+  string student_class_code = 2;
+  string student_class_name = 3;
+
+  string department_code = 4;
+  string department_name = 5;
 }
 
 // 직원의 경우 유저 정보에 포함하여 반환
 message Employee {
-  int64 id = 1;
-  int64 user_id = 2;
-  int64 department_id = 3;
+  string user_code = 1;
+  
+  string department_code = 2;
+  string department_name = 3;
 }
 
-// 유저
-message User {
-  int64 id = 1;
-  string user_number = 2;
-  string email = 3;
-  string name = 4;
-  string family_name = 5;
-  string given_name = 6;
-  bannote.userservice.common.v1.UserType type = 7;
-  bannote.userservice.common.v1.UserStatus status = 8;
-  string bio = 9;
-  string profile = 10;
-  google.protobuf.Timestamp created_at = 11;
-  google.protobuf.Timestamp deleted_at = 12;
+// 유저 기본 정보
+message UserBasic {
+  string user_code = 1;
+  string user_email = 2;
+  string user_name = 3;
+  string family_name = 4;
+  string given_name = 5;
+  bannote.userservice.common.v1.UserType type = 6;
+  bannote.userservice.common.v1.UserStatus status = 7;
+  string bio = 8;
+  string profile_image_url = 9;
+  google.protobuf.Timestamp created_at = 10;
+  optional google.protobuf.Timestamp deleted_at = 11;
+}
+
+// 유저 상세 정보
+message UserDetail {
+  string user_code = 1;
+  string user_email = 2;
+  string user_name = 3;
+  string family_name = 4;
+  string given_name = 5;
+  bannote.userservice.common.v1.UserType type = 6;
+  bannote.userservice.common.v1.UserStatus status = 7;
+  string bio = 8;
+  string profile_image = 9;
+  google.protobuf.Timestamp created_at = 10;
+  google.protobuf.Timestamp deleted_at = 11;
 
   // UserType에 따라 최대 하나만 설정
   oneof user_detail {
-    Student student = 13;
-    Employee employee = 14;
+    Student student = 12;
+    Employee employee = 13;
   }
 }

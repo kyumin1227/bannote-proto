@@ -2,15 +2,12 @@ syntax = "proto3";
 
 package bannote.userservice.emailallowlist.v1;
 
-import "google/protobuf/timestamp.proto";
-
 option go_package = "github.com/kyumin1227/bannote-proto/gen/go/user-service/email_allowlist/v1";
 option java_multiple_files = true;
 option java_package = "com.bannote.userservice.proto.email_allowlist.v1";
 
 // 허용된 이메일
 message EmailAllowlist {
-  int64 id = 1;
-  string email = 2;
-  google.protobuf.Timestamp created_at = 3;
+  string email = 1;
+  string user_code = 2;
 }

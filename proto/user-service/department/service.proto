@@ -33,7 +33,7 @@ service DepartmentService {
 
 // 학과 조회 시 필요한 정보
 message GetDepartmentRequest {
-  int64 id = 1;
+  string department_code = 1;
 }
 
 message GetDepartmentResponse {
@@ -42,7 +42,8 @@ message GetDepartmentResponse {
 
 // 학과 생성 시 필요한 정보
 message CreateDepartmentRequest {
-  string name = 1;
+  string department_code = 1;
+  string department_name = 2;
 }
 
 message CreateDepartmentResponse {
@@ -51,7 +52,7 @@ message CreateDepartmentResponse {
 
 // 학과 수정 시 필요한 정보
 message UpdateDepartmentRequest {
-  int64 id = 1;
+  string department_code = 1;
   optional string name = 2;
 }
 
@@ -61,7 +62,7 @@ message UpdateDepartmentResponse {
 
 // 학과 삭제 시 필요한 정보
 message DeleteDepartmentRequest {
-  int64 id = 1;
+  string department_code = 1;
 }
 
 message DeleteDepartmentResponse {
