@@ -8,7 +8,6 @@ import "common/enums.proto";
 option go_package = "github.com/kyumin1227/bannote-proto/gen/go/user-service/role/v1";
 option java_multiple_files = true;
 option java_package = "com.bannote.userservice.proto.role.v1";
-option java_outer_classname = "RoleServiceProto";
 
 // Gateway에서 gRPC metadata로 전달되는 정보:
 // - user-id: 요청하는 유저의 ID

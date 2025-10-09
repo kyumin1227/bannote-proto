@@ -7,7 +7,6 @@ import "google/protobuf/timestamp.proto";
 option go_package = "github.com/kyumin1227/bannote-proto/gen/go/user-service/department/v1";
 option java_multiple_files = true;
 option java_package = "com.bannote.userservice.proto.department.v1";
-option java_outer_classname = "DepartmentMessageProto";
 
 // 학과
 message Department {

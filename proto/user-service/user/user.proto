@@ -8,7 +8,6 @@ import "common/enums.proto";
 option go_package = "github.com/kyumin1227/bannote-proto/gen/go/user-service/user/v1";
 option java_multiple_files = true;
 option java_package = "com.bannote.userservice.proto.user.v1";
-option java_outer_classname = "UserMessageProto";
 
 // 학생의 경우 유저 정보에 포함하여 반환
 message Student {
