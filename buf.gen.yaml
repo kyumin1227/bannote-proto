@@ -1,9 +1,10 @@
 version: v2
+clean: true # 빌드 전 기존의 결과물 삭제
 managed:
   enabled: true
   override:
     - file_option: go_package_prefix
-      value: github.com/kyumin1227/bannote-proto/gen/go
+      value: github.com/kyumin1227/bannote-proto/gen/go/
 plugins:
   # Go plugins
   - remote: buf.build/protocolbuffers/go

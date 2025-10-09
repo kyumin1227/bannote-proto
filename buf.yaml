@@ -1,7 +1,9 @@
 version: v2
 modules:
-  - path: user-service
-    name: buf.build/kyumin1227/bannote-proto
+  - path: proto/user-service
+    name: buf.build/bannote/user-service
+  - path: proto/token-service
+    name: buf.build/bannote/token-service
 lint:
   use:
     - STANDARD
