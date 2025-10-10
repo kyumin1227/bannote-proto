@@ -9,9 +9,9 @@ option go_package = "github.com/kyumin1227/bannote-proto/gen/go/user-service/use
 option java_multiple_files = true;
 option java_package = "com.bannote.userservice.proto.user.v1";
 
-// 학생의 경우 유저 정보에 포함하여 반환
+// 학생 정보
 message Student {
-  string user_code = 1;
+  UserBasic user = 1;
   
   string student_class_code = 2;
   string student_class_name = 3;
@@ -20,9 +20,9 @@ message Student {
   string department_name = 5;
 }
 
-// 직원의 경우 유저 정보에 포함하여 반환
+// 직원 정보
 message Employee {
-  string user_code = 1;
+  UserBasic user = 1;
   
   string department_code = 2;
   string department_name = 3;
@@ -45,21 +45,11 @@ message UserBasic {
 
 // 유저 상세 정보
 message UserDetail {
-  string user_code = 1;
-  string user_email = 2;
-  string user_name = 3;
-  string family_name = 4;
-  string given_name = 5;
-  bannote.userservice.common.v1.UserType type = 6;
-  bannote.userservice.common.v1.UserStatus status = 7;
-  string bio = 8;
-  string profile_image = 9;
-  google.protobuf.Timestamp created_at = 10;
-  google.protobuf.Timestamp deleted_at = 11;
 
   // UserType에 따라 최대 하나만 설정
   oneof user_detail {
-    Student student = 12;
-    Employee employee = 13;
+    UserBasic user = 1;
+    Student student = 2;
+    Employee employee = 3;
   }
 }
