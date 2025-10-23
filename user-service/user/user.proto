@@ -45,11 +45,25 @@ message UserBasic {
 
 // 유저 상세 정보
 message UserDetail {
+  // 공통 필드
+  string user_code = 1;
+  string user_email = 2;
+  string user_name = 3;
+  string family_name = 4;
+  string given_name = 5;
+  bannote.userservice.common.v1.UserType user_type = 6;
+  bannote.userservice.common.v1.UserStatus user_status = 7;
+  string bio = 8;
+  string profile_image_url = 9;
+  google.protobuf.Timestamp created_at = 10;
+  optional google.protobuf.Timestamp deleted_at = 11;
 
-  // UserType에 따라 최대 하나만 설정
-  oneof user_detail {
-    UserBasic user = 1;
-    Student student = 2;
-    Employee employee = 3;
-  }
+  // 학생 전용 필드 (type이 STUDENT일 때만)
+  optional string student_class_code = 20;
+  optional string student_class_name = 21;
+
+  // 학과 필드 (학생/교직원)
+  optional string department_code = 30;
+  optional string department_name = 31;
 }
+

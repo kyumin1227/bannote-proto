@@ -4,17 +4,17 @@ managed:
   enabled: true
   override:
     - file_option: go_package_prefix
-      value: github.com/kyumin1227/bannote-proto/gen/go/
+      value: userservice
+      module: buf.build/bannote/user-service
+    - file_option: go_package_prefix
+      value: tokenservice
+      module: buf.build/bannote/token-service
 plugins:
   # Go plugins
   - remote: buf.build/protocolbuffers/go
     out: gen/go
-    opt:
-      - paths=source_relative
   - remote: buf.build/grpc/go
     out: gen/go
-    opt:
-      - paths=source_relative
   # Java plugins
   - remote: buf.build/protocolbuffers/java
     out: gen/java

@@ -1,8 +1,8 @@
 version: v2
 modules:
-  - path: proto/user-service
+  - path: user-service
     name: buf.build/bannote/user-service
-  - path: proto/token-service
+  - path: token-service
     name: buf.build/bannote/token-service
 lint:
   use:
