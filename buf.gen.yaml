@@ -20,3 +20,8 @@ plugins:
     out: gen/java
   - remote: buf.build/grpc/java
     out: gen/java
+  # Ruby plugins
+  - remote: buf.build/protocolbuffers/ruby
+    out: gen/ruby
+  - remote: buf.build/grpc/ruby
+    out: gen/ruby
