@@ -12,7 +12,7 @@ import "group/group.proto";
 service GroupService {
   rpc CreateGroup(CreateGroupRequest) returns (CreateGroupResponse);
   rpc GetGroupList(GetGroupListRequest) returns (GetGroupListResponse);
-  // rpc GetGroup(GetGroupRequest) returns (GetGroupResponse);
+  rpc GetGroup(GetGroupRequest) returns (GetGroupResponse);
   rpc UpdateGroup(UpdateGroupRequest) returns (UpdateGroupResponse);
   rpc DeleteGroup(DeleteGroupRequest) returns (DeleteGroupResponse);
 }
@@ -40,9 +40,9 @@ message GetGroupListRequest {
 }
 
 // 그룹 상세보기 기능 추가 시 
-// message GetGroupRequest {
-//   int64 group_id = 1;
-// }
+message GetGroupRequest {
+  int64 group_id = 1;
+}
 
 message UpdateGroupRequest {
   int64 group_id = 1;
