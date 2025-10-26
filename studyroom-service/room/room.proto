@@ -14,7 +14,7 @@ enum RoomStatus {
 // 스터디룸 메시지 구조
 message Room {
   int64 id = 1;                               // 스터디룸 ID
-  string department_name = 2;                 // 학과명 (외부 서비스 참조)
+  string department_code = 2;                 // 학과 코드 (유저 서비스 참조)
   string name = 3;                            // 스터디룸 이름
   int32 minimum_member = 4;                   // 최소 인원
   RoomStatus status = 5;                      // 스터디룸 상태

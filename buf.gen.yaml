@@ -10,16 +10,16 @@ managed:
       value: tokenservice
       module: buf.build/bannote/token-service
 plugins:
-  # Go plugins
-  - remote: buf.build/protocolbuffers/go
-    out: gen/go
-  - remote: buf.build/grpc/go
-    out: gen/go
-  # Java plugins
-  - remote: buf.build/protocolbuffers/java
-    out: gen/java
-  - remote: buf.build/grpc/java
-    out: gen/java
+  # # Go plugins
+  # - remote: buf.build/protocolbuffers/go
+  #   out: gen/go
+  # - remote: buf.build/grpc/go
+  #   out: gen/go
+  # # Java plugins
+  # - remote: buf.build/protocolbuffers/java
+  #   out: gen/java
+  # - remote: buf.build/grpc/java
+  #   out: gen/java
   # Ruby plugins
   - remote: buf.build/protocolbuffers/ruby
     out: gen/ruby
