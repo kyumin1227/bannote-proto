@@ -65,8 +65,12 @@ message CreateUserRequest {
 // 회원 가입 응답
 message CreateUserResponse {
   bool success = 1;
+  bool can_login = 2;
   // 실패 사유
-  optional string reason = 2;
+  optional string reason = 3;
+  
+  // 회원가입 성공 시
+  optional UserDetail user = 4;
 }
 
 // 학생 생성 시 필요한 정보
