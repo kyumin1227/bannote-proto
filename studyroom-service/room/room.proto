@@ -1,0 +1,86 @@
+syntax = "proto3";
+
+package bannote.studyroomservice.room.v1;
+
+import "google/protobuf/timestamp.proto";
+
+// ==========================================
+// ENUM: 스터디룸 상태
+// ==========================================
+enum RoomStatus {
+  ROOM_STATUS_UNSPECIFIED = 0; // 지정되지 않음
+  ROOM_STATUS_VACANT = 1;      // 공실
+  ROOM_STATUS_OCCUPIED = 2;    // 입실
+}
+
+// ==========================================
+// MESSAGE: Room (스터디룸 구조체)
+// ==========================================
+message Room {
+  int64 id = 1;                               // 스터디룸 ID
+  string department_code = 2;                 // 학과 코드
+  string name = 3;                            // 스터디룸 이름
+  int32 maximum_member = 4;                   // 최대 인원
+  RoomStatus status = 5;                      // 스터디룸 상태
+  google.protobuf.Timestamp created_at = 6;   // 생성 시각
+  google.protobuf.Timestamp updated_at = 7;   // 수정 시각
+  int64 created_by = 8;                       // 생성자
+}
+
+// ==========================================
+// CREATE
+// ==========================================
+message CreateRoomRequest {
+  string department_code = 1;
+  string name = 2;
+  int32 maximum_member = 3;
+  RoomStatus status = 4;
+}
+
+message CreateRoomResponse {
+  Room room = 1;
+}
+
+// ==========================================
+// READ (단건 조회)
+// ==========================================
+message GetRoomRequest {
+  int64 id = 1;
+}
+
+message GetRoomResponse {
+  Room room = 1;
+}
+
+// ==========================================
+// LIST (전체 목록)
+// ==========================================
+message ListRoomsRequest {}
+
+message ListRoomsResponse {
+  repeated Room rooms = 1;
+}
+
+// ==========================================
+// UPDATE
+// ==========================================
+message UpdateRoomRequest {
+  int64 id = 1;
+  string department_code = 2; 
+  string name = 3;
+  int32 maximum_member = 4;
+  RoomStatus status = 5;
+}
+
+message UpdateRoomResponse {
+  Room room = 1;
+}
+
+// ==========================================
+// DELETE
+// ==========================================
+message DeleteRoomRequest {
+  int64 id = 1;
+}
+
+message DeleteRoomResponse {}
