@@ -1,9 +1,5 @@
 version: v2
 modules:
-  - path: user-service
-    name: buf.build/bannote/user-service
-  - path: token-service
-    name: buf.build/bannote/token-service
   - path: studyroom-service
     name: buf.build/bannote/studyroom-service
 lint:

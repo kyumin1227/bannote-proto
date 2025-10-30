@@ -1,28 +1,11 @@
 version: v2
-clean: true # 빌드 전 기존의 결과물 삭제
+clean: true  # 빌드 전 기존의 결과물 삭제
+
 managed:
   enabled: true
-  override:
-    - file_option: go_package_prefix
-      value: userservice
-      module: buf.build/bannote/user-service
-    - file_option: go_package_prefix
-      value: tokenservice
-      module: buf.build/bannote/token-service
+
 plugins:
-  # # Go plugins
-  # - remote: buf.build/protocolbuffers/go
-  #   out: gen/go
-  # - remote: buf.build/grpc/go
-  #   out: gen/go
-  # # Java plugins
-  # - remote: buf.build/protocolbuffers/java
-  #   out: gen/java
-  # - remote: buf.build/grpc/java
-  #   out: gen/java
-  # Ruby plugins
   - remote: buf.build/protocolbuffers/ruby
     out: gen/ruby
   - remote: buf.build/grpc/ruby
     out: gen/ruby
-
