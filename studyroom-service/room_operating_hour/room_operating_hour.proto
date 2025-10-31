@@ -9,9 +9,9 @@ message RoomOperatingHour {
   int64 id = 1;                               // 운영 시간 ID
   int64 room_id = 2;                          // 스터디룸 ID
   int32 day_of_week = 3;                      // 요일 (0:일요일 ~ 6:토요일)
-  string opening_time = 4;                    // 여는 시간 (HH:MM)
-  string closing_time = 5;                    // 닫는 시간 (HH:MM)
-  string day_maximum_time = 6;                // 하루 최대 예약 가능 시간 (HH:MM)
+  google.protobuf.Timestamp opening_time = 4; // 여는 시각 (DATETIME)
+  google.protobuf.Timestamp closing_time = 5; // 닫는 시각 (DATETIME)
+  google.protobuf.Timestamp day_maximum_time = 6; // 하루 최대 예약 가능 종료 기준 시각(필요 시) (DATETIME)
   google.protobuf.Timestamp created_at = 7;   // 생성 시각
   google.protobuf.Timestamp updated_at = 8;   // 수정 시각
   google.protobuf.Timestamp deleted_at = 9;   // 삭제 시각 (소프트 삭제)
@@ -21,9 +21,9 @@ message RoomOperatingHour {
 message CreateRoomOperatingHourRequest {
   int64 room_id = 1;
   int32 day_of_week = 2;
-  string opening_time = 3;
-  string closing_time = 4;
-  string day_maximum_time = 5;
+  google.protobuf.Timestamp opening_time = 3; // DATETIME
+  google.protobuf.Timestamp closing_time = 4; // DATETIME
+  google.protobuf.Timestamp day_maximum_time = 5; // DATETIME (사용 안 하면 빈 값)
 }
 
 message CreateRoomOperatingHourResponse {
@@ -54,9 +54,9 @@ message UpdateRoomOperatingHourRequest {
   int64 id = 1;
   int64 room_id = 2;
   int32 day_of_week = 3;
-  string opening_time = 4;
-  string closing_time = 5;
-  string day_maximum_time = 6;
+  google.protobuf.Timestamp opening_time = 4; // DATETIME
+  google.protobuf.Timestamp closing_time = 5; // DATETIME
+  google.protobuf.Timestamp day_maximum_time = 6; // DATETIME
 }
 
 message UpdateRoomOperatingHourResponse {
