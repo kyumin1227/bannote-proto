@@ -9,6 +9,12 @@ managed:
     - file_option: go_package_prefix
       value: tokenservice
       module: buf.build/bannote/token-service
+    - file_option: go_package_prefix
+      value: commonservice
+      module: buf.build/bannote/common-service
+    - file_option: java_package_prefix
+      value: com.bannote.commonservice
+      module: buf.build/bannote/common-service
 plugins:
   # Go plugins
   - remote: buf.build/protocolbuffers/go

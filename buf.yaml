@@ -4,6 +4,8 @@ modules:
     name: buf.build/bannote/user-service
   - path: token-service
     name: buf.build/bannote/token-service
+  - path: common-service
+    name: buf.build/bannote/common-service
 lint:
   use:
     - STANDARD
