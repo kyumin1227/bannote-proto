@@ -6,6 +6,8 @@ modules:
     name: buf.build/bannote/token-service
   - path: schedule-service
     name: buf.build/bannote/schedule-service
+  - path: common-service
+    name: buf.build/bannote/common-service
 deps:
   - buf.build/bannote/common-service
 lint:
