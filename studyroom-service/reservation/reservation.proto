@@ -42,7 +42,6 @@ message Reservation {
   google.protobuf.Timestamp created_at = 11;
   google.protobuf.Timestamp updated_at = 12;
   google.protobuf.Timestamp deleted_at = 13;
-
 }
 
 // ===============================================
